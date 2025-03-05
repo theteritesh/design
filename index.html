@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Retail Shop Dashboard</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header class="bg-dark text-white p-3">
+    <div class="container d-flex justify-content-between align-items-center">
+      <h1 class="h4"><i class="fa-solid fa-store"></i> Retail Shop Dashboard</h1>
+      <nav>
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#" onclick="loadContent('home')">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" id="userDropdown" role="button"
+              data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa-regular fa-circle-user"></i> Ritesh Thete
+            </a>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+              <a class="dropdown-item" href="#">Profile</a>
+              <a class="dropdown-item" href="#">Settings</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item logout"  href="#" onclick="logout()">Logout</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container-fluid">
+    <div class="row">
+      <aside class="col-md-2 bg-secondary sidebar">
+        <h2 class="h5 text-white">Navigation</h2>
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link text-white" href="#" onclick="loadContent('addProduct')"><i
+                class="fas fa-plus"></i> Add Product</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#" onclick="loadContent('viewProduct')"><i
+                class="fas fa-eye"></i> View Products</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#" onclick="loadContent('orderHistory')"><i
+                class="fas fa-history"></i> Order History</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#" onclick="loadContent('inventoryManagement')"><i
+                class="fas fa-box"></i> Inventory Management</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#" onclick="loadContent('shippingManagement')"><i
+                class="fas fa-shipping-fast"></i> Shipping Management</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#" onclick="loadContent('customerFeedback')"><i
+                class="fas fa-comments"></i> Customer Feedback</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#" onclick="loadContent('reports')"><i
+                class="fas fa-chart-line"></i> Sales Reports</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#" onclick="loadContent('settings')"><i
+                class="fas fa-cog"></i> Settings</a></li>
+        </ul>
+      </aside>
+
+      <main class="col-md-10 main-container" id="main-content">
+        <h1>Welcome to the Dashboard</h1>
+
+        <!-- Summary Panel -->
+        <section class="summary">
+          <h2 class="h5">Summary</h2>
+          <div class="row">
+            <div class="col-md-3">
+              <div class="card text-white bg-info mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">Total Products</h5>
+                  <p class="card-text" id="totalProducts">150</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card text-white bg-success mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">Total Sales</h5>
+                  <p class="card-text" id="totalSales">$12,500</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card text-white bg-warning mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">Pending Orders</h5>
+                  <p class="card-text" id="pendingOrders">5</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card text-white bg-danger mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">Customer Feedback</h5>
+                  <p class="card-text" id="customerFeedback">3</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <footer class="bg-dark text-white text-center p-4">
+    <div class="container">
+      <p>&copy; 2023 Retail Shop Dashboard. All rights reserved.</p>
+      <div class="footer-links mb-3">
+        <a href="#" class="text-white">Privacy Policy</a> |
+        <a href="#" class="text-white">Terms of Service</a> |
+        <a href="#" class="text-white">Contact Us</a> |
+        <a href="#" class="text-white">Help Center</a> |
+        <a href="#" class="text-white">FAQ</a>
+      </div>
+      <div class="contact-info mb-3">
+        <p>Contact us: <a href="mailto:support@example.com" class="text-white">support@example.com</a> | Phone: <a
+            href="tel:+1234567890" class="text-white">+1 (234) 567-890</a></p>
+      </div>
+      <div class="newsletter mb-3">
+        <p>Subscribe to our newsletter:</p>
+        <form action="#" method="post" class="d-flex justify-content-center">
+          <input type="email" class="form-control mb-2 me-2" placeholder="Enter your email" required>
+          <button type="submit" class="btn btn-primary mb-2">Subscribe</button>
+        </form>
+      </div>
+      <div class="location mb-3">
+        <p>Visit us at: 123 Retail St, Shop City, ST 12345</p>
+      </div>
+      <div class="social-media mt-2">
+        <a href="#" class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="text-white me-2"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
