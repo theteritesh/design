@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body{
+
+    font-family: Arial, sans-serif;
+    background-color: #f2f9ff;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  .vision-section, .mission-section {
+    background-color: #e6f6ff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    color: #002b5b;
+  }
+
+  p {
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+
+  img {
+    width: 100%;
+    max-width: 400px;
+    display: block;
+    margin-top: 20px;
+  } 
+
+  .nav-container{
+    display: flex;
+  }
+    
+
+  
+ 

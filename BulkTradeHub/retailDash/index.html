@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retail Shop Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container-fluid px-4 py-4">
+        <!-- Page Header -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Dashboard Overview</h1>
+            <button class="btn btn-primary" onclick="refreshData()">
+                <i class="fas fa-sync-alt me-2"></i>Refresh Data
+            </button>
+        </div>
+        <!-- Statistics Cards -->
+        <div class="row g-4 mb-5">
+            <!-- Total Products Card -->
+            <div class="col-xl-3 col-md-6">
+                <div class="card stat-card card-blue text-white h-100">
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="text-xs text-white-50 mb-1">TOTAL PRODUCTS</div>
+                            <div class="h3 mb-0 fw-bold">250</div>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Posted Products Card -->
+            <div class="col-xl-3 col-md-6">
+                <div class="card stat-card card-green text-white h-100">
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="text-xs text-white-50 mb-1">POSTED PRODUCTS</div>
+                            <div class="h3 mb-0 fw-bold">150</div>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-tags"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Low Stock Card -->
+            <div class="col-xl-3 col-md-6">
+                <div class="card stat-card card-orange text-white h-100">
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="text-xs text-white-50 mb-1">LOW STOCK</div>
+                            <div class="h3 mb-0 fw-bold">25</div>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Out of Stock Card -->
+            <div class="col-xl-3 col-md-6">
+                <div class="card stat-card card-red text-white h-100">
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="text-xs text-white-50 mb-1">OUT OF STOCK</div>
+                            <div class="h3 mb-0 fw-bold">10</div>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="row g-4">
+            <!-- Product Status Distribution -->
+            <div class="col-xl-6">
+                <div class="chart-container p-4 mb-4">
+                    <h5 class="mb-4">
+                        <i class="fas fa-chart-pie me-2"></i>
+                        Product Status Distribution
+                    </h5>
+                    <canvas id="productStatusChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Monthly Product Addition Trend -->
+            <div class="col-xl-6">
+                <div class="chart-container p-4 mb-4">
+                    <h5 class="mb-4">
+                        <i class="fas fa-chart-line me-2"></i>
+                        Monthly Product Addition Trend
+                    </h5>
+                    <canvas id="productTrendChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        // Function to refresh data
+        function refreshData() {
+            // Add animation to refresh button
+            const refreshBtn = document.querySelector('.btn-primary');
+            refreshBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Refreshing...';
+            refreshBtn.disabled = true;
+
+            // Simulate data refresh (would be an API call in real application)
+            setTimeout(() => {
+                refreshBtn.innerHTML = '<i class="fas fa-sync-alt me-2"></i>Refresh Data';
+                refreshBtn.disabled = false;
+                
+                // Update random numbers for demonstration
+                document.querySelectorAll('.stat-card .h3').forEach(card => {
+                    const currentValue = parseInt(card.textContent);
+                    const newValue = currentValue + Math.floor(Math.random() * 10) - 5;
+                    card.textContent = Math.max(0, newValue);
+                });
+            }, 1500);
+        }
+
+        // Product Status Distribution Chart
+        const statusCtx = document.getElementById('productStatusChart').getContext('2d');
+        new Chart(statusCtx, {
+            type: 'pie',
+            data: {
+                labels: ['In Stock', 'Posted', 'Low Stock', 'Out of Stock'],
+                datasets: [{
+                    data: [65, 150, 25, 10],
+                    backgroundColor: [
+                        '#4e73df',
+                        '#1cc88a',
+                        '#f6c23e',
+                        '#e74a3b'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+
+        // Monthly Product Addition Trend Chart
+        const trendCtx = document.getElementById('productTrendChart').getContext('2d');
+        new Chart(trendCtx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Products Added',
+                    data: [65, 78, 90, 115, 140, 150],
+                    borderColor: '#4e73df',
+                    tension: 0.3,
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
