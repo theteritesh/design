@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Bulk Product - BulkTradeHub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .form-container {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-title {
+            text-align: center;
+            font-weight: bold;
+            color: #007bff;
+        }
+        .logo {
+            display: block;
+            margin: 0 auto;
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <!-- Company Logo -->
+    <img src="logo.png" alt="BulkTradeHub Logo" class="logo mb-3">
+
+    <div class="form-container">
+        <h2 class="form-title">Post Bulk Product</h2>
+
+        <form>
+            <h5 class="mt-3 text-primary">Search Stored Product</h5>
+            <div class="mb-3">
+                <label class="form-label">Search Product</label>
+                <input type="text" id="searchProduct" class="form-control" placeholder="Type to search product">
+                <ul class="dropdown-menu w-100" id="searchResults"></ul>
+            </div>
+            <!-- Product Details -->
+            <h5 class="mt-3 text-primary">Product Details</h5>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Product Name</label>
+                    <input type="text" class="form-control" placeholder="Enter product name" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Category</label>
+                    <input type="text" class="form-control" placeholder="Enter category" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Brand</label>
+                    <input type="text" class="form-control" placeholder="Enter brand name" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Description</label>
+                    <textarea class="form-control" placeholder="Enter product description" rows="2" required></textarea>
+                </div>
+            </div>
+
+            <!-- Bulk Selling Details -->
+            <h5 class="mt-3 text-primary">Bulk Selling Details</h5>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Total Quantity Available</label>
+                    <input type="number" class="form-control" placeholder="Enter available quantity" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Minimum Order Quantity</label>
+                    <input type="number" class="form-control" placeholder="Enter MOQ" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Bulk Package Type</label>
+                    <select class="form-select">
+                        <option value="Box">Box</option>
+                        <option value="Carton">Carton</option>
+                        <option value="Pallet">Pallet</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Pricing & Discounts -->
+            <h5 class="mt-3 text-primary">Pricing & Discounts</h5>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Retail Price per Unit</label>
+                    <input type="number" class="form-control" placeholder="Enter retail price" required>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Wholesale Price per Unit</label>
+                    <input type="number" class="form-control" placeholder="Enter wholesale price" required>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Bulk Discount (%)</label>
+                    <input type="number" class="form-control" placeholder="Enter discount percentage">
+                </div>
+            </div>
+
+            <!-- Logistics & Delivery -->
+            <h5 class="mt-3 text-primary">Logistics & Delivery</h5>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Delivery Time for Bulk Orders</label>
+                    <input type="text" class="form-control" placeholder="E.g., 7-10 days" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Shipping Cost for Bulk Orders</label>
+                    <input type="number" class="form-control" placeholder="Enter shipping cost" required>
+                </div>
+            </div>
+
+            <!-- 🆕 Production & Availability -->
+            <h5 class="mt-3 text-primary">Production & Availability</h5>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Availability Type</label>
+                    <select class="form-select" id="availabilityType">
+                        <option value="Ready">Ready Stock</option>
+                        <option value="MadeToOrder">Made to Order</option>
+                    </select>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Production Lead Time (Days)</label>
+                    <input type="number" class="form-control" id="leadTime" placeholder="Enter production time" >
+                </div>
+            </div>
+
+            <!-- Payment Details -->
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Accepted Payment Methods</label>
+                <select class="form-select" id="paymentMethods" required>
+                    <option value="" selected disabled>Select Payment Method</option>
+                    <option value="UPI">UPI</option>
+                    <option value="Bank Transfer">Bank Transfer</option>
+                    <option value="Credit/Debit Card">Credit/Debit Card</option>
+                    <option value="Cash on Delivery">Cash on Delivery (COD)</option>
+                </select>
+            </div>
+        
+            <!-- COD Confirmation (Only shows if COD is selected) -->
+            <div class="col-md-6 mb-3" id="codConfirmation" style="display: none;">
+                <label class="form-label">COD Terms</label>
+                <select class="form-select" id="codTerms">
+                    <option value="Full Payment on Delivery">Full Payment on Delivery</option>
+                    <option value="Partial Advance + COD">Partial Advance + COD</option>
+                </select>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-upload"></i> Post Product</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+<script>
+    document.getElementById("paymentMethods").addEventListener("change", function() {
+        let codSection = document.getElementById("codConfirmation");
+        if (this.value === "Cash on Delivery") {
+            codSection.style.display = "block";
+        } else {
+            codSection.style.display = "none";
+        }
+    });
+</script>
+</html>

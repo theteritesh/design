@@ -1,0 +1,218 @@
+<html>
+ <head>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+ </head>
+ <body class="bg-gray-100 p-4">
+  <div class="max-w-4xl mx-auto bg-white p-4 rounded shadow">
+   <div class="flex justify-between items-center border-b pb-4 mb-4">
+    <div class="text-lg font-semibold">
+     From Saved Addresses
+    </div>
+    <button class="text-blue-500 border border-blue-500 px-4 py-1 rounded">
+     Enter Delivery Pincode
+    </button>
+   </div>
+   <div class="flex">
+    <div class="w-3/4 pr-4">
+     <div class="bg-white p-4 rounded shadow mb-4">
+      <div class="flex">
+       <img alt="LAVNIK Electric Hair trimmer for men Clipper Shaver" class="w-24 h-24 object-cover" src="https://placehold.co/100x100"/>
+       <div class="ml-4 flex-1">
+        <div class="text-lg font-semibold">
+         LAVNIK Electric Hair trimmer for men Clipper Shaver Re...
+        </div>
+        <div class="text-gray-500">
+         Golden
+        </div>
+        <div class="text-gray-500">
+         Seller: ROCKINGSTARSR
+        </div>
+        <div class="flex items-center mt-2">
+         <div class="text-lg font-semibold text-green-600">
+          ₹248
+         </div>
+         <div class="text-gray-500 line-through ml-2">
+          ₹3,200
+         </div>
+         <div class="text-green-600 ml-2">
+          92% Off
+         </div>
+        </div>
+        <div class="text-green-600 mt-1">
+         1 offer available
+        </div>
+        <div class="text-gray-500 mt-1">
+         + ₹9 Protect Promise Fee
+        </div>
+       </div>
+      </div>
+      <div class="mt-4 p-4 bg-gray-100 rounded">
+       <div class="flex justify-between items-center">
+        <div>
+         <div class="text-lg font-semibold">
+          OneAssist Extended Warranty Plan for Electronics
+         </div>
+         <div class="text-gray-500">
+          Extended Warranty (1 Year)
+         </div>
+         <div class="text-gray-500">
+          1 Year
+         </div>
+         <div class="text-green-600 mt-1">
+          ₹69
+          <span class="line-through text-gray-500">
+           ₹109
+          </span>
+          36% off
+         </div>
+        </div>
+        <button class="bg-orange-500 text-white px-4 py-2 rounded">
+         Add Item
+        </button>
+       </div>
+       <div class="mt-4 text-gray-500">
+        OneAssist Extended Warranty Plan - OneAssist Extended Warranty means an extension of the original manufacturers warranty on the concerned Product by a continuous period of 1 or 2 Years, starting from the expiry of manufacturers warranty. OneAssist Extended Warranty replicates the manufacturers warranty against any malfunctions or breakdown for the duration opted.
+        <a class="text-blue-500" href="#">
+         Know More
+        </a>
+       </div>
+      </div>
+      <div class="flex items-center mt-4">
+       <div class="flex items-center border border-gray-300 rounded">
+        <button class="px-2 py-1">
+         -
+        </button>
+        <input class="w-8 text-center border-none" type="text" value="1"/>
+        <button class="px-2 py-1">
+         +
+        </button>
+       </div>
+       <button class="ml-4 text-blue-500">
+        SAVE FOR LATER
+       </button>
+       <button class="ml-4 text-red-500">
+        REMOVE
+       </button>
+      </div>
+     </div>
+    </div>
+    <div class="w-1/4">
+     <div class="bg-white p-4 rounded shadow">
+      <div class="text-lg font-semibold border-b pb-2 mb-2">
+       PRICE DETAILS
+      </div>
+      <div class="flex justify-between mb-2">
+       <div>
+        Price (1 item)
+       </div>
+       <div>
+        ₹3,200
+       </div>
+      </div>
+      <div class="flex justify-between mb-2">
+       <div>
+        Discount
+       </div>
+       <div class="text-green-600">
+        - ₹2,952
+       </div>
+      </div>
+      <div class="flex justify-between mb-2">
+       <div>
+        Delivery Charges
+       </div>
+       <div class="text-green-600">
+        ₹40 Free
+       </div>
+      </div>
+      <div class="flex justify-between mb-2">
+       <div>
+        Protect Promise Fee
+       </div>
+       <div>
+        ₹9
+       </div>
+      </div>
+      <div class="flex justify-between font-semibold border-t pt-2 mt-2">
+       <div>
+        Total Amount
+       </div>
+       <div>
+        ₹257
+       </div>
+      </div>
+      <div class="text-green-600 mt-2">
+       You will save ₹2,943 on this order
+      </div>
+     </div>
+     <div class="mt-4 flex items-center">
+      <i class="fas fa-shield-alt text-green-600">
+      </i>
+      <div class="ml-2 text-gray-500">
+       Safe and Secure Payments. Easy returns. 100% Authentic products.
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="mt-4">
+    <button class="bg-orange-500 text-dark w-full py-2 rounded">
+     PLACE ORDER
+    </button>
+   </div>
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const quantityInput = document.querySelector('input[type="text"]');
+      const minusBtn = quantityInput.previousElementSibling;
+      const plusBtn = quantityInput.nextElementSibling;
+  
+      const basePrice = 3200;
+      const discountedPrice = 248;
+      const protectFee = 9;
+  
+      const priceItemEl = document.querySelectorAll(".flex.justify-between.mb-2")[0].children[1];
+      const discountEl = document.querySelectorAll(".flex.justify-between.mb-2")[1].children[1];
+      const totalAmountEl = document.querySelector(".flex.justify-between.font-semibold.border-t.pt-2.mt-2").children[1];
+      const youSaveEl = document.querySelector(".text-green-600.mt-2");
+  
+      function updatePrice(qty) {
+        const originalTotal = basePrice * qty;
+        const discountedTotal = discountedPrice * qty;
+        const discount = originalTotal - discountedTotal;
+        const totalAmount = discountedTotal + protectFee;
+  
+        // Update DOM
+        priceItemEl.textContent = `₹${originalTotal}`;
+        discountEl.textContent = `- ₹${discount}`;
+        totalAmountEl.textContent = `₹${totalAmount}`;
+        youSaveEl.textContent = `You will save ₹${discount} on this order`;
+      }
+  
+      minusBtn.addEventListener("click", function () {
+        let qty = parseInt(quantityInput.value);
+        if (qty > 1) {
+          qty--;
+          quantityInput.value = qty;
+          updatePrice(qty);
+        }
+      });
+  
+      plusBtn.addEventListener("click", function () {
+        let qty = parseInt(quantityInput.value);
+        qty++;
+        quantityInput.value = qty;
+        updatePrice(qty);
+      });
+  
+      // Initial price update
+      updatePrice(parseInt(quantityInput.value));
+    });
+  </script>
+  
+ </body>
+</html>
